@@ -1,0 +1,179 @@
+/* Base styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #0d1117;
+    color: #c9d1d9;
+    margin: 0;
+    padding: 20px;
+  }
+  
+  .container {
+    max-width: 960px;
+    margin: auto;
+    background-color: #161b22;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #0ff;
+  }
+  
+  h1 {
+    text-align: center;
+    color: #58a6ff;
+    margin-bottom: 30px;
+  }
+  
+  h2 {
+    color: #79c0ff;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #30363d;
+    padding-bottom: 5px;
+  }
+  
+  section {
+    margin-bottom: 40px;
+  }
+  
+  label {
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  
+  textarea {
+    width: 100%;
+    height: 100px;
+    background-color: #0d1117;
+    color: #fff;
+    border: 1px solid #30363d;
+    padding: 10px;
+    border-radius: 6px;
+    resize: vertical;
+    font-family: monospace;
+    font-size: 0.95rem;
+  }
+  
+  button {
+    background-color: #238636;
+    color: white;
+    padding: 10px 20px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  
+  button:hover {
+    background-color: #2ea043;
+  }
+  
+  .toggle-btn {
+    position: fixed;
+    top: 15px;
+    right: 15px;
+    z-index: 999;
+    padding: 8px 14px;
+    border-radius: 6px;
+    background-color: #161b22;
+    color: #58a6ff;
+    border: 1px solid #30363d;
+    font-size: 0.9rem;
+  }
+  
+  p {
+    margin-top: 10px;
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+  
+  /* Panels and logs */
+  #incidentLog, #threatFeed, #loginMap {
+    background-color: #21262d;
+    padding: 15px;
+    border-radius: 6px;
+    margin-top: 10px;
+    font-family: monospace;
+    white-space: pre-wrap;
+    max-height: 200px;
+    overflow-y: auto;
+    border: 1px solid #30363d;
+  }
+  
+  /* Blinking border animation for threat feed */
+  .threat-feed {
+    animation: blink 1.2s infinite alternate;
+  }
+  
+  @keyframes blink {
+    0%   { border: 1px solid #ff6347; }
+    100% { border: 1px solid #00ffff; }
+  }
+  /* Styles for Live Threat Feed */
+#threatFeed {
+    white-space: pre-wrap;
+    overflow-y: auto;
+    max-height: 200px;
+    padding: 10px;
+    background-color: #21262d;
+    border: 1px solid #30363d;
+    border-radius: 4px;
+    font-family: monospace;
+    font-size: 0.95rem;
+    line-height: 1.4;
+    animation: blink 1s infinite alternate;
+  }
+  
+  /* Optional blinking border effect */
+  @keyframes blink {
+    0% { border-color: #ff6347; }
+    100% { border-color: #00ffff; }
+  }
+  
+  /* Chart responsiveness */
+  canvas {
+    width: 100% !important;
+    max-width: 600px;
+    margin-top: 10px;
+  }
+  
+  /* Light Theme Mode */
+  body.light-mode {
+    background-color: #f4f4f4;
+    color: #222;
+  }
+  
+  body.light-mode .container {
+    background-color: #ffffff;
+    box-shadow: 0 0 10px #ccc;
+  }
+  
+  body.light-mode textarea,
+  body.light-mode #incidentLog,
+  body.light-mode #threatFeed,
+  body.light-mode #loginMap {
+    background-color: #f0f0f0;
+    color: #111;
+    border: 1px solid #ccc;
+  }
+  
+  body.light-mode h1,
+  body.light-mode h2 {
+    color: #0a58ca;
+  }
+  
+  body.light-mode .toggle-btn {
+    background-color: #e0e0e0;
+    color: #0a58ca;
+    border: 1px solid #bbb;
+  }
+  
+  body.light-mode button {
+    background-color: #007b5e;
+  }
+  
+  body.light-mode button:hover {
+    background-color: #00916e;
+  }
+  

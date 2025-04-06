@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AI CyberDefense Simulator</title>
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <!-- Leaflet Map -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+</head>
+<body>
+  <!-- Redirect to login if not authenticated -->
+  <script>
+    if (localStorage.getItem("authenticated") !== "true") {
+      window.location.href = "login.html";
+    }
+  </script>
+
+  <!-- Theme Toggle -->
+  <button class="toggle-btn" onclick="toggleTheme()">🌓 Toggle Theme</button>
+
+  <div class="container">
+    <h1>🧠 AI CyberDefense Simulator</h1>
+    <button onclick="logout()">🚪 Logout</button>
+
+    <!-- Section 1: Phishing Email Detection -->
+    <section>
+      <h2>📨 Phishing Email Detection</h2>
+      <label for="emailInput">Paste suspicious email here:</label>
+      <textarea id="emailInput" placeholder="Paste suspicious email here..."></textarea>
+      <button onclick="detectPhishing()">Analyze Email</button>
+      <p id="emailResult"></p>
+    </section>
+
+    <!-- Section 2: User Behavior Monitoring -->
+    <section>
+      <h2>📊 User Behavior Monitoring</h2>
+      <button onclick="simulateUserBehavior()">Simulate User Activity</button>
+      <p id="behaviorResult"></p>
+    </section>
+
+    <!-- Section 3: Automated System Response -->
+    <section>
+      <h2>🔐 Automated System Response</h2>
+      <p id="responseAction">System status: <span id="systemStatus">Normal</span></p>
+    </section>
+
+    <!-- Section 4: Threat Intelligence Sharing -->
+    <section>
+      <h2>🌐 Threat Intelligence Sharing</h2>
+      <button onclick="shareThreat()">Share Latest Threat</button>
+      <p id="sharedThreat"></p>
+    </section>
+
+    <!-- Section 5: Incident Log -->
+    <section>
+      <h2>🗃️ Incident Log</h2>
+      <button onclick="showIncidentLog()">View Log</button>
+      <button onclick="downloadLogs()">Download Logs</button>
+      <div id="incidentLog"></div>
+    </section>
+
+    <!-- Section 6: Live Threat Feed -->
+    <section>
+      <h2>📰 Live Threat Feed</h2>
+      <div class="threat-feed" id="threatFeed">Loading threats...</div>
+    </section>
+
+    <!-- Section 7: Global Login Monitor -->
+    <section>
+      <h2>🌍 Global Login Monitor</h2>
+      <button onclick="simulateLoginActivity()">Simulate Logins</button>
+      <div id="loginMap" style="height: 300px;"></div>
+    </section>
+
+    <!-- Section 8: Phishing Detection Chart -->
+    <section>
+      <h2>📈 Phishing Detection Stats</h2>
+      <canvas id="phishingChart" width="400" height="200"></canvas>
+    </section>
+
+    <!-- Section 9: AI Email Response -->
+    <section>
+      <h2>🤖 AI Email Response</h2>
+      <button onclick="generateAIResponse()">Generate Smart Reply</button>
+      <p id="aiResponse"></p>
+    </section>
+  </div>
+
+  <!-- Logout Script -->
+  <script>
+    function logout() {
+      localStorage.removeItem("authenticated");
+      window.location.href = "login.html";
+    }
+  </script>
+
+  <!-- Main App Logic -->
+  <script src="script.js"></script>
+</body>
+</html>

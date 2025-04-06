@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Register - AI CyberDefense</title>
+  <style>
+    body {
+      background-color: #0d1117;
+      color: #c9d1d9;
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    .container {
+      max-width: 400px;
+      margin: auto;
+      background-color: #161b22;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #0ff;
+    }
+    input[type="text"], input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 5px;
+      border: 1px solid #30363d;
+      background-color: #0d1117;
+      color: white;
+    }
+    button {
+      width: 100%;
+      padding: 10px;
+      background-color: #238636;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #2ea043;
+    }
+    .link-btn {
+      background: none;
+      border: none;
+      color: #58a6ff;
+      cursor: pointer;
+      text-decoration: underline;
+      padding: 5px 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>📝 Register</h1>
+    <form onsubmit="return handleRegister(event)">
+      <input type="text" id="newUsername" placeholder="Create username" required />
+      <input type="password" id="newPassword" placeholder="Create password" required />
+      <button type="submit">Register</button>
+    </form>
+    <button class="link-btn" onclick="window.location.href='login.html'">Back to Login</button>
+  </div>
+
+  <script>
+    function handleRegister(event) {
+      event.preventDefault();
+      const username = document.getElementById("newUsername").value.trim();
+      const password = document.getElementById("newPassword").value.trim();
+      const users = JSON.parse(localStorage.getItem("users") || "{}");
+
+      if (users[username]) {
+        alert("❌ Username already exists.");
+      } else {
+        users[username] = password;
+        localStorage.setItem("users", JSON.stringify(users));
+        alert("✅ Account created. You can now login.");
+        window.location.href = "login.html";
+      }
+    }
+  </script>
+</body>
+</html>
